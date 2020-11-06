@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
-            val usernameText = findViewById<EditText>(R.id.txtUsername)
-            val username = usernameText.text.toString();
+            val user = findViewById<EditText>(R.id.txtUsername)
+            val username = user.text.toString();
 
-            val passwordText = findViewById<EditText>(R.id.txtPassword)
-            val password = passwordText.text.toString();
+            val pass = findViewById<EditText>(R.id.txtPassword)
+            val password = pass.text.toString();
 
             if (username.equals("admin") && password.equals("1234")) {
                 login()
