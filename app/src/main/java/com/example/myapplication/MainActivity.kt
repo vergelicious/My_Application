@@ -1,8 +1,10 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -15,20 +17,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
-            val username = findViewById<EditText>(R.id.txtUsername)
-            val password = findViewById<EditText>(R.id.txtPassword)
+            val usernameText = findViewById<EditText>(R.id.txtUsername)
+            val username = usernameText.text.toString();
+
+            val passwordText = findViewById<EditText>(R.id.txtPassword)
+            val password = passwordText.text.toString();
 
             if (username.equals("admin") && password.equals("1234")) {
-                Application()
+                login()
+
             } else {
                 Toast.makeText(this, "Incorrect username or password.", Toast.LENGTH_SHORT).show()
             }
         }
     }
-}
 
-private fun login() {
-    val intent = Intent( this, Application::class.java )
-    startActivity(intent)
-    Toast.makeText(this, "You are now logged in.", Toast.LENGTH_SHORT).show()
+    private fun login() {
+        val intent = Intent(this, Application::class.java)
+        startActivity(intent)
+        Toast.makeText(this, "You are logged in", Toast.LENGTH_SHORT).show()
+    }
 }

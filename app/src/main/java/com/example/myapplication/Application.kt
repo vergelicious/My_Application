@@ -9,6 +9,6 @@ class Application : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_application)
 
-        findViewById<Button>()
+
     }
 }
