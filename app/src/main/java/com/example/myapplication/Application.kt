@@ -44,17 +44,20 @@ class Application : AppCompatActivity() {
             startActivity(intent)
         } else {
             Toast.makeText(this, "Unfortunately settings has stopped.", Toast.LENGTH_SHORT).show()
+            //The intent failed due to ACTION_ALL_APPS is not present.
         }
     }
 
     private fun openAlarm() {
         val intent = Intent(AlarmClock.ACTION_SET_ALARM)
-        intent.addCategory(Intent.ACTION_ALL_APPS)
-        startActivity(intent)
+        intent.addCategory(Intent.CATEGORY_APP_CALCULATOR)
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         } else {
             Toast.makeText(this, "Cannot open clock.", Toast.LENGTH_SHORT).show()
+            //The intent failed due to the category is not applicable to ACTION_SET_ALARM.
         }
     }
+
+
 }
